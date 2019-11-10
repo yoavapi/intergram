@@ -45,7 +45,8 @@ app.post('/hook', function(req, res){
 io.on('connection', function(client){
 
     client.on('register', function(registerMsg){
-        let userId = "User " + registerMsg.userId;
+        let token = client.handshake.query.user;
+        let userId = "Anonymous " + token + ' ' +registerMsg.userId; 
         let chatId = registerMsg.chatId;
         let messageReceived = false;
         console.log("useId " + userId + " connected to chatId " + chatId);
