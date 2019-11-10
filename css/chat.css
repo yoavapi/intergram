@@ -156,3 +156,8 @@ a.banner {
     font-weight: 200;
     text-decoration: none
 }
+
+
+#intergramChat {
+    direction: rtl;
+}
