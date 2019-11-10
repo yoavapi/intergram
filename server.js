@@ -45,17 +45,7 @@ app.post('/hook', function(req, res){
 io.on('connection', function(client){
 
     client.on('register', function(registerMsg){
-        // let userId = registerMsg.userId;
-        date = new Date();
-
-        weekdayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-        monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-        var dateString = weekdayNames[date.getDay()] + " " 
-            + date.getHours() + ":" + ("00" + date.getMinutes()).slice(-2) + " " 
-            + date.getDate() + " " + monthNames[date.getMonth()] + " " + date.getFullYear();
-        
-        console.log(dateString);
-        let userId = "User"+dateString;
+        let userId = "User " + registerMsg.userId;
         let chatId = registerMsg.chatId;
         let messageReceived = false;
         console.log("useId " + userId + " connected to chatId " + chatId);
